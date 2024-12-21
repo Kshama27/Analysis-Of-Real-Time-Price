@@ -1,0 +1,74 @@
+/* style.css */
+
+body {
+  font-family: 'Times New Roman', Times, serif, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: black;
+}
+
+form {
+  text-align: center;
+  margin: 20px;
+}
+
+input[type="text"] {
+  padding: 5px;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  padding: 5px 15px;
+  font-size: 16px;
+  background-color: #060606;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+h2 {
+  text-align: center;
+  color: #007BFF;
+  margin-top: 20px;
+}
+
+p {
+  text-align: center;
+  margin: 10px;
+  font-size: 18px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+#resultContainer {
+  animation: fadeIn 1s ease;
+}
+
+/* Additional Styles */
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #0b0b0b;
+}
+
+/* Optional: Center the form and resultContainer */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+}

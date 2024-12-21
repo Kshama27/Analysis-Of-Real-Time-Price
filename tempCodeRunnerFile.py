@@ -1,0 +1,1 @@
+'https://www.croma.com/search/?text={product_name.replace(" ", "%")}'

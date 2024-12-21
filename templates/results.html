@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Comparison Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="gradient-bg text-white py-6">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold text-center">Price Comparison Results</h1>
+            {% if amazon_image %}
+            <div class="mt-4 flex justify-center">
+                <div class="bg-white rounded-lg shadow-lg p-4 max-w-xs">
+                    <img src="{{ amazon_image }}" alt="Product Image" class="max-w-full h-auto rounded-lg mx-auto">
+                </div>
+            </div>
+            {% endif %}
+            <p class="text-center mt-4">Here are the prices for "<strong>{{ product_name }}</strong>"</p>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <table class="w-full">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Platform</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Link</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">Flipkart</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ flipkart_price }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <a href="https://www.flipkart.com/search?q={{ product_name }}" target="_blank" class="text-indigo-600 hover:text-indigo-900">View on Flipkart</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">Amazon</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ amazon_price }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <a href="https://www.amazon.in/s?k={{ product_name }}" target="_blank" class="text-indigo-600 hover:text-indigo-900">View on Amazon</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">Croma</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ croma_price }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <a href="https://www.croma.com/search/?text={{ product_name }}" target="_blank" class="text-indigo-600 hover:text-indigo-900">View on Croma</a>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-8 text-center">
+            <a href="/" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition duration-300">Search Another Product</a>
+        </div>
+    </main>
+
+    <footer class="gradient-bg text-white py-4 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 PriceComparison. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
